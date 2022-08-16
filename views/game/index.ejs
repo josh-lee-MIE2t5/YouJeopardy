@@ -1,0 +1,8 @@
+<%layout('layouts/boilerplate')-%>
+<h1>all games</h1>
+<a href="/game/new">make a new game</a>
+<ul>
+  <% for (let game of games){ %>
+  <li><a href="/game/<%= game._id %>"><%=game.title%></a></li>
+  <% } %>
+</ul>
