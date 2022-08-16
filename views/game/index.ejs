@@ -1,8 +1,70 @@
 <%layout('layouts/boilerplate')-%>
-<h1>all games</h1>
-<a href="/game/new">make a new game</a>
-<ul>
-  <% for (let game of games){ %>
-  <li><a href="/game/<%= game._id %>"><%=game.title%></a></li>
-  <% } %>
-</ul>
+<section class="h-100 d-flex align-items-center">
+  <div class="w-100 h-75 d-flex justify-content-around row">
+    <div class="offset-2 col-4 mx-2 border border-dark mh-100">
+      <h4>Public Games</h4>
+      <div
+        class="h-50 mx-auto border border-primary"
+        style="overflow-y: scroll; width: 30em"
+      >
+        <% for(let game of games) {%>
+        <div
+          class="card text-white bg-secondary mb-3 mx-auto"
+          style="max-width: 22rem"
+        >
+          <div class="card-header">Made By: <%= game.author.username %></div>
+          <div class="card-body">
+            <h5 class="card-title"><%= game.title %></h5>
+            <p class="card-text">
+              <a href="/game/<%= game._id %>" class="btn btn-primary"
+                >See Details</a
+              >
+            </p>
+          </div>
+        </div>
+        <% } %>
+      </div>
+      <div class="h-50">
+        <!-- make a search/filtering feature -->
+        <form action="">
+          <h5>Search form</h5>
+        </form>
+      </div>
+    </div>
+    <% if (user) {%>
+    <div class="col-4 mx-2 border border-dark mh-100">
+      <h4 class="mb-5">Your Games</h4>
+      <% if (!yourGames.length) {%>
+      <div
+        class="border border-primary d-flex flex-column justify-content-center"
+      >
+        <p class="text-muted text-center mt-2">No games created</p>
+        <a class="btn btn-primary" href="/game/new">Make your first game</a>
+      </div>
+      <% } else {%>
+      <div
+        class="h-75 mx-auto border border-primary mt-5"
+        style="overflow-y: scroll; width: 30em"
+      >
+        <% for (let game of yourGames){ %>
+        <div
+          class="card text-white bg-dark mb-3 mx-auto"
+          style="max-width: 18rem"
+        >
+          <div class="card-header"><%= game.access%></div>
+          <div class="card-body">
+            <h5 class="card-title"><%= game.title %></h5>
+            <p class="card-text">
+              <a href="/game/<%= game._id %>" class="btn btn-primary"
+                >See Details</a
+              >
+            </p>
+          </div>
+        </div>
+        <% } %>
+      </div>
+      <% } %>
+    </div>
+    <% } %>
+  </div>
+</section>

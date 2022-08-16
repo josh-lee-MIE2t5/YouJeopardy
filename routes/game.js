@@ -8,7 +8,17 @@ router
   .route("/")
   .get(
     handleAsync(async (req, res) => {
-      const games = await Game.find({ access: "public" });
+      const games = await Game.find({ access: "public" }).populate("author");
+      if (req.user) {
+        const yourGames = await Game.find({ author: req.user._id }).populate(
+          "author"
+        );
+        return res.render("game/index", {
+          tabTitle: "All Games",
+          games,
+          yourGames,
+        });
+      }
       res.render("game/index", { tabTitle: "All Games", games });
     })
   )
@@ -51,8 +61,7 @@ router
       game.access = access;
       game.categories = categories;
       game.author = req.user;
-      console.log(game);
-      // await game.save();
+      await game.save();
       req.flash("success", "Game successfully edited");
       res.redirect(`/game/${game._id}`);
     })

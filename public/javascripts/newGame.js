@@ -47,7 +47,6 @@ addColBtn.addEventListener("click", () => {
   } else {
     alert("maximum 6 categories a game");
   }
-  console.log(columns);
 });
 
 const addRowBtn = document.querySelector("#addRow");
@@ -63,7 +62,6 @@ addRowBtn.addEventListener("click", () => {
   } else {
     alert("maximum 5 questions per category");
   }
-  console.log(rows);
 });
 
 const deleteRowBtn = document.querySelector("#deleteRow");
