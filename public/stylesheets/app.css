@@ -1,0 +1,9 @@
+.scroll-inf {
+    overflow-y: scroll;
+    width: 75%;
+    height: 90%;
+}
+
+.game-box {
+    width: 16rem;
+}

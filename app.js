@@ -73,7 +73,11 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req, res, next) => {
   if (!["/login", "/register", "/logout"].includes(req.originalUrl)) {
     if (req.originalUrl) {
-      req.session.returnTo = req.originalUrl;
+      if (req.originalUrl.includes("?page=")) {
+        req.session.returnTo = "/game";
+      } else {
+        req.session.returnTo = req.originalUrl;
+      }
     } else {
       req.session.returnTo = "/";
     }

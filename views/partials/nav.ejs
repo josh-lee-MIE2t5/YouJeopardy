@@ -16,6 +16,9 @@
       <div class="navbar-nav">
         <a class="nav-link d-inline" href="/">Home</a>
         <a class="nav-link d-inline" href="/game">Games</a>
+        <% if (user){ %>
+        <a class="nav-link d-inline" href="/game/myGames">My Games</a>
+        <% } %>
       </div>
       <div class="navbar-nav ms-auto">
         <% if(user){ %>

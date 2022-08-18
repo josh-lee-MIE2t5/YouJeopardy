@@ -123,13 +123,13 @@ async function seedDb() {
   //   author: await User.findById("62f9bd019355aa910772105d"),
   // });
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 11; i < 20; i++) {
     let access = "public";
-    if (i % 2 === 0) {
-      access = "private";
-    } else {
-      access = "public";
-    }
+    // if (i % 2 === 0) {
+    //   access = "private";
+    // } else {
+    //   access = "public";
+    // }
     const game = new Game({
       title: `game ${i}`,
       access,

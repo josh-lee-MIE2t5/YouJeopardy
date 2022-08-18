@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const mongoosePaginate = require("mongoose-paginate-v2");
 
 const questionSchema = new Schema(
   {
@@ -21,5 +22,7 @@ const gameSchema = new Schema({
   categories: [categorySchema],
   author: { type: Schema.Types.ObjectId, ref: "User", required: true },
 });
+
+gameSchema.plugin(mongoosePaginate);
 
 module.exports = mongoose.model("Game", gameSchema);
