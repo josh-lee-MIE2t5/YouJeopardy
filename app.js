@@ -101,9 +101,11 @@ app.all("*", (req, res, next) => {
 
 app.use((err, req, res, next) => {
   if (err) {
+    console.log(err);
+    const { status = 404, message = "Not Found" } = err;
     res.status(err.status).render("error", {
       tabTitle: "Page not found",
-      error: `Status ${err.status}: ${err.message}`,
+      error: `Status ${status}: ${message}`,
     });
   }
 });

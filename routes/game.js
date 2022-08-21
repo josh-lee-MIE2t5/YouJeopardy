@@ -9,8 +9,10 @@ router
   .get(handleAsync(gameController.index))
   .post(isLoggedIn, validateGame, handleAsync(gameController.makeNewGame));
 
-//IMPORTANT NEED TO HANDLE ERROR HANDLING IF GAME OF ID IS NOT FOUND
+//index page of all public games
 router.get("/myGames", isLoggedIn, handleAsync(gameController.renderPrivates));
+
+router.get("/searchGame", handleAsync(gameController.filterGames));
 
 // renders the form for making a new game
 router.get("/new", isLoggedIn, gameController.renderNewGameForm);

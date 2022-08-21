@@ -35,10 +35,72 @@
     </div>
 
     <div class="col-4 mx-2 border border-dark mh-100">
-      <div class="h-75">
-        <!-- make a search/filtering feature -->
-        <form action="">
-          <h5>Search form</h5>
+      <div class="h-75 mt-5">
+        <form action="/game/searchGame" method="GET">
+          <h5 class="mb-4">Search form</h5>
+          <div class="row mb-4">
+            <div class="offset-1 col-1 d-flex justify-content-end">
+              <label class="form-label text-muted" for="gametitle">Title</label>
+            </div>
+            <div class="offset-1 col-8">
+              <input
+                type="text"
+                name="title"
+                id="gametitle"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-1 offset-1 d-flex justify-content-end">
+              <label class="form-label text-muted" for="gameAuthor"
+                >Author</label
+              >
+            </div>
+            <div class="offset-1 col-8">
+              <input
+                type="text"
+                name="author"
+                id="gameAuthor"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-5">
+              <label class="form-label text-muted" for="categoriesLength"
+                >Number of categories</label
+              >
+            </div>
+            <div class="offset-3 col-3">
+              <input
+                type="number"
+                name="numOfCategories"
+                id="categoriesLength"
+                min="1"
+                max="6"
+                class="form-control w-75 mx-auto"
+              />
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-5">
+              <label class="form-label text-muted" for="questionsLength"
+                >Number of Questions (per category)</label
+              >
+            </div>
+            <div class="offset-3 col-3">
+              <input
+                type="number"
+                name="numOfQuestions"
+                id="questionsLength"
+                min="1"
+                max="5"
+                class="form-control w-75 mx-auto"
+              />
+            </div>
+          </div>
+          <button class="btn btn-primary">Search</button>
         </form>
       </div>
     </div>
