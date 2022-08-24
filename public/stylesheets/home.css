@@ -4,13 +4,18 @@ body {
     background-size: cover;
 }
 
+main {
+    width: 100%;
+    height: 100%;
+}
+
 #home-nav {
     height: 1.5em;
     background: rgba(109, 69, 134, 0.9);
 }
 
 #home-nav a {
-    font-size: 0.5em;
+    font-size: 0.6em;
     color: rgba(255, 215, 38, 0.8);
     text-shadow: 0.25em 0.1em 0.1em rgba(0, 0, 0, 0.5);
     transition: color 0.75s, text-shadow 0.5s;
@@ -22,10 +27,8 @@ body {
 }
 
 #main-content {
-    width: 50%;
-    height: 60%;
-    margin-top: 7em;
-    margin-left: 25%;
+    width: 15rem;
+    height: 20rem;
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 10%;
 }
@@ -49,7 +52,7 @@ body {
 
 #main-content a {
     font-size: 0.5em;
-    margin: 1em 40%;
+    margin: 1em 2em 40%;
     transition: margin 0.25s;
 }
 
@@ -76,6 +79,11 @@ body {
         height: 2em;
     }
 
+    #main-content {
+        width: 20rem;
+        height: 20rem;
+    }
+
     #main-content h1 {
         font-size: 1.5em;
     }
@@ -98,6 +106,11 @@ body {
 }
 
 @media (min-width:992px) {
+    #main-content {
+        width: 30rem;
+        height: 25rem;
+    }
+
     #home-nav {
         height: 2.4em;
     }
@@ -107,6 +120,7 @@ body {
     }
 
     #main-content p {
+        margin-bottom: 0.5em;
         font-size: 1em;
     }
 
@@ -114,12 +128,15 @@ body {
         font-size: 1em;
     }
 
-    #main-content {
-        margin-left: 10em;
-    }
+
 }
 
 @media (min-width:1400px) {
+    #main-content {
+        width: 40rem;
+        height: 30rem;
+    }
+
     #main-content h1 {
         font-size: 2em;
     }

@@ -25,14 +25,14 @@ function generateMoreGames(game) {
   if (window.location.href.indexOf("/myGames") !== -1)
     header = `${game.access}`;
   let template = ` <div
-    class="card text-white bg-secondary mb-3 mx-auto game-box"
+    class="card text-white mb-3 mx-auto game-box"
     style="max-width: 22rem"
     >
     <div class="card-header">${header}</div>
     <div class="card-body">
       <h5 class="card-title">${game.title}</h5>
       <p class="card-text">
-        <a href="/game/${game._id}" class="btn btn-primary"
+        <a href="/game/${game._id}" class="btn btn-warning"
           >See Details</a
         >
       </p>
