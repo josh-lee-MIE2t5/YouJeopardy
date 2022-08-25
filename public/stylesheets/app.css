@@ -3,7 +3,8 @@ body {
     background-size: cover;
 }
 
-#public-games {
+.container-with-paginate {
+    height: 25em;
     width: 25em;
     border-radius: 10%;
     background: rgba(0, 0, 0, 0.95);
@@ -11,10 +12,18 @@ body {
 
 .scroll-inf {
     overflow-y: scroll;
-    width: 20em;
     height: 25em;
+    width: 20em;
+    padding-top: 1em;
 }
 
+.scroll-inf::-webkit-scrollbar {
+    background: #e8f2ff;
+}
+
+.scroll-inf::-webkit-scrollbar-thumb {
+    background: rgba(109, 69, 134, 0.9);
+}
 
 .game-box {
     background-color: rgba(109, 69, 134, 0.9);
@@ -36,4 +45,36 @@ body {
 
 .btn.btn-warning:hover {
     color: rgba(255, 255, 255, 0.75);
+}
+
+.btn.btn-danger {
+    color: black;
+    transition: color 0.25s;
+}
+
+.btn.btn-danger:hover {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+
+.btn.btn-info {
+    transition: color 0.25s;
+}
+
+.btn.btn-info:hover {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.show-game {
+    background-color: rgba(109, 69, 134, 0.9);
+    width: 25rem;
+    border-radius: 1em;
+}
+
+h6.card-subtitle.mb-2 {
+    color: rgba(255, 215, 38, 0.8);
+}
+
+div.btn-group {
+    margin-left: 5.5em;
 }

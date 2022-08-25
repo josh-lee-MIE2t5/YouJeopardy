@@ -5,9 +5,9 @@
   >
     <div class="offset-lg-2 col-md col-lg-4 mx-2 mh-100 p-3">
       <h4 class="text-center"><u>Public Games:</u></h4>
-      <div id="public-games" class="d-flex justify-content-center mx-auto">
+      <div class="container-with-paginate mx-auto">
         <div
-          class="scroll-inf py-3 px-4 d-flex flex-column justify-content-center"
+          class="scroll-inf py-3 px-4 mx-auto d-flex flex-column justify-content-center"
           id="games-list"
         >
           <div id="games-container">
@@ -28,15 +28,15 @@
             <% } %>
           </div>
           <% if(games.docs.length>=10){ %>
-          <div class="d-grid gap-2 col-6 mx-auto">
-            <a
-              href="/game?page=<%=games.nextPage%>"
-              id="paginate"
-              class="btn btn-warning mx-auto"
-            >
-              Load More
-            </a>
-          </div>
+          <!-- <div class="d-grid gap-2 col-6 mx-auto"> -->
+          <a
+            href="/game?page=<%=games.nextPage%>"
+            id="paginate"
+            class="btn btn-warning mx-auto w-100"
+          >
+            Load More
+          </a>
+          <!-- </div> -->
           <% } %>
         </div>
       </div>

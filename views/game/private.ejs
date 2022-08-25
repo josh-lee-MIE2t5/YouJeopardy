@@ -1,38 +1,41 @@
 <%layout('layouts/boilerplate')-%>
 <section class="h-100 d-flex align-items-center">
-  <div class="w-100 h-75 d-flex justify-content-around">
-    <div class="offset-2 col-4 mx-2 border border-dark mh-100">
-      <h4>Your Games</h4>
-      <div
-        class="mx-auto border border-primary scroll-inf d-flex flex-column"
-        id="games-list"
-      >
-        <div id="games-container">
-          <% for(let game of games.docs) {%>
-          <div class="card text-white bg-secondary mb-3 mx-auto game-box">
-            <div class="card-header"><%= game.access %></div>
-            <div class="card-body">
-              <h5 class="card-title"><%= game.title %></h5>
-              <p class="card-text">
-                <a href="/game/<%= game._id %>" class="btn btn-primary"
-                  >See Details</a
-                >
-              </p>
+  <div class="w-100 h-75 d-flex justify-content-center">
+    <container>
+      <h4 class="text-center mb-3"><u>Your Games:</u></h4>
+      <div class="container-with-paginate mt-3 mx-auto">
+        <div
+          class="mx-auto scroll-inf d-flex flex-column"
+          style="padding-top: 1em"
+          id="games-list"
+        >
+          <div id="games-container">
+            <% for(let game of games.docs) {%>
+            <div class="card text-white mb-3 mx-auto game-box">
+              <div class="card-header"><%= game.access %></div>
+              <div class="card-body">
+                <h5 class="card-title"><%= game.title %></h5>
+                <p class="card-text">
+                  <a href="/game/<%= game._id %>" class="btn btn-warning"
+                    >See Details</a
+                  >
+                </p>
+              </div>
             </div>
+            <% } %>
           </div>
+          <% if (games.docs.length>=10){ %>
+          <a
+            href="/game/myGames?page=<%=games.nextPage%>"
+            id="paginate"
+            class="btn btn-warning mx-auto mb-3"
+          >
+            Load More
+          </a>
           <% } %>
         </div>
-        <% if (games.docs.length>=10){ %>
-        <a
-          href="/game/myGames?page=<%=games.nextPage%>"
-          id="paginate"
-          class="btn btn-primary mx-auto"
-        >
-          Load More
-        </a>
-        <% } %>
       </div>
-    </div>
+    </container>
   </div>
 </section>
 <script

@@ -93,6 +93,7 @@ module.exports.editGame = async (req, res) => {
 };
 module.exports.deleteGame = async (req, res) => {
   await Game.findByIdAndDelete(req.params.id);
+  req.flash("success", "Game Deleted");
   res.redirect("/game");
 };
 

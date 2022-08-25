@@ -1,9 +1,9 @@
 <% layout('layouts/boilerplate')-%>
 <section class="d-flex justify-content-center align-items-center" style="height: 100%">
-  <div class="card " style="width: 18rem">
+  <div class="card show-game text-white" >
     <div class="card-body">
-      <h5 class="card-title"><%= game.title %></h5>
-      <h6 class="card-subtitle mb-2 text-muted">Made by: <%= game.author.username %> </h6>
+      <h3 class="card-title"><b><%= game.title %></b></h3>
+      <h6 class="card-subtitle mb-2">Made by: <%= game.author.username %> </h6>
       <p class="card-text">
         <ul>
             <% for (let category of game.categories){ %>
@@ -11,18 +11,15 @@
                 <% } %>
         </ul>
       </p>
-  <div class="row">
-    <div class="col">  <a href="/game/<%=game._id%>/play" class="card-link btn btn-primary">Play</a></div>
+  <div class="btn-group">
+    <a href="/game/<%=game._id%>/play" class="card-link btn btn-warning">Play</a>
     <% if(user && game.author.equals(user._id)){ %> 
-  <div class="col">    <!-- check if the user who is logged in is the author -->
-    <a href="/game/<%=game._id%>/edit" class="card-link btn btn-info">Edit</a></div>
-<div class="col">    <form action="/game/<%=game._id%>?_method=DELETE" method="POST">
+    <a href="/game/<%=game._id%>/edit" class="card-link btn btn-info">Edit</a>
+ <form action="/game/<%=game._id%>?_method=DELETE" method="POST" >
     <button class="btn btn-danger">Delete</button>
-  </form></div>
+  </form>
   <% } %> 
-
   </div>
     </div>
   </div>
-
 </section>
