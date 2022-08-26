@@ -7,7 +7,7 @@ const userSchema = Joi.object({
 
 const questionSchema = Joi.object({
   body: Joi.string().min(1).max(250).required(),
-  answer: Joi.string().min(1).max(50).required(),
+  answer: Joi.string().min(1).max(250).required(),
   points: Joi.number().valid(200, 400, 600, 800, 1000).required(),
 });
 

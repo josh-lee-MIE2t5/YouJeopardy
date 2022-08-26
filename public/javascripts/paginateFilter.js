@@ -23,7 +23,6 @@ document
     fetch(this.href)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         for (let game of data.docs) {
           let template = generateMoreGames(game);
           $("#games-container").append(template);

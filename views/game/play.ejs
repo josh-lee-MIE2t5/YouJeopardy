@@ -1,51 +1,85 @@
-<%layout('layouts/boilerplate')-%>
-<div class="section h-50">
-  <div class="row d-flex justify-content-center text-center">
-    <%for (let i = 0; i<game.categories.length; i++) { %>
-    <div class="col d-flex flex-column align-items-center">
-      <h5><%= game.categories[i].name %></h5>
-      <% for (let j = 0; j < game.categories[i].questions.length; j++) { %>
-      <button id="category-<%=i%>-question-<%=j%>" class="mb-5 w-50"><%= game.categories[i].questions[j].points %></button>
-      <% } %>
-    </div>
-    <% } %>
-  </div>
-</div>
-<div class="section h-50">
-    <div class="h-50">
-        <div class="h-50 d-flex flex-column">
-                <%for (let i = 0; i<game.categories.length; i++) { %>
-                    <% for (let j = 0; j < game.categories[i].questions.length; j++) { %>
-                <span class="text-center qBody" id="category-<%=i%>-qBody-<%=j%>" hidden>For <%=game.categories[i].questions[j].points%> points: <%= game.categories[i].questions[j].body%></span>
-                <button class="w-25 mx-auto qAnsBtn" hidden id="category-<%=i%>-ansBtn-<%=j%>">Show Answer</button>
-                <% } %> 
-                <% } %> 
-        </div>
-        <div class="h-50">
-                <%for (let i = 0; i<game.categories.length; i++) { %>
-                    <% for (let j = 0; j < game.categories[i].questions.length; j++) { %>
-                <span class="text-center qAns" id="category-<%=i%>-answer-<%=j%>" hidden>Answer: <%= game.categories[i].questions[j].answer%></span>
-                <% } %> 
-                <% } %> 
-        </div>
-    </div>
-    <div class="h-50 d-flex">
-        <div class="w-50 text-center">
-            <h5 class="mb-3">Team 1</h5>
-            <p id="team1-points">Points: 0</p>
-            <button id="team1-add">+ (200)</button>
-            <button id="team1-sub">- (200)</button>
-        </div>
-        <div class="w-50 text-center">
-            <h5 class="mb-3">Team 2</h5>
-            <p id="team2-points">Points: 0</p>
-            <button id="team2-add">+ (200)</button>
-            <button id="team2-sub">- (200)</button>
-        </div>
-    </div>
-</div>
-<script>
-    const colIndex = <%=game.categories.length%>;
-    const rowIndex = <%=game.categories[0].questions.length%>;
-</script>
-<script src="/javascripts/playGame.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,800&family=Silkscreen&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/app.css" />
+  <link rel="stylesheet" href="/stylesheets/flash.css" />
+    <title><%=tabTitle%></title>
+</head>
+<body>
+    <%-include('../partials/nav')%>
+    <main>
+        <div class="section">
+            <div class="row">
+              <%for (let i = 0; i<game.categories.length; i++) { %>
+              <div class="col mx-0 p-0 d-flex flex-column align-items-center">
+                <h5 class="text-center category-title"><%= game.categories[i].name %></h5>
+                <% for (let j = 0; j < game.categories[i].questions.length; j++) { %>
+                <button id="category-<%=i%>-question-<%=j%>" class="question-reveal"><%= game.categories[i].questions[j].points %></button>
+                <% } %>
+              </div>
+              <% } %>
+            </div>
+          </div>
+          <div class="section d-flex flex-column">
+              <div class="order-1 show-question-answer">
+                  <div class="h-50 d-flex flex-column">
+                          <%for (let i = 0; i<game.categories.length; i++) { %>
+                              <% for (let j = 0; j < game.categories[i].questions.length; j++) { %>
+                          <span class="qBody" id="category-<%=i%>-qBody-<%=j%>" hidden><b class="amt-of-pts">For <%=game.categories[i].questions[j].points%> points:</b> <%= game.categories[i].questions[j].body%></span>
+                          <button class="w-25 mx-auto qAnsBtn" hidden id="category-<%=i%>-ansBtn-<%=j%>">Show Answer</button>
+                          <% } %> 
+                          <% } %> 
+                  </div>
+                  <div class="answer-box d-flex justify-content-center">
+                          <%for (let i = 0; i<game.categories.length; i++) { %>
+                              <% for (let j = 0; j < game.categories[i].questions.length; j++) { %>
+                          <span class="qAns" id="category-<%=i%>-answer-<%=j%>" hidden>Answer: <%= game.categories[i].questions[j].answer%></span>
+                          <% } %> 
+                          <% } %> 
+                  </div>
+              </div>
+              <div class="order-2 d-flex justify-content-center">
+                  <div class="team-points-box text-center">
+                      <h5 class="mb-3">Team 1</h5>
+                      <p id="team1-points">Points: 0</p>
+                      <button class="btn btn-success" id="team1-add">+ (200)</button>
+                      <button class="btn btn-danger" id="team1-sub">- (200)</button>
+                  </div>
+                  <div class="team-points-box text-center">
+                      <h5 class="mb-3">Team 2</h5>
+                      <p id="team2-points">Points: 0</p>
+                      <button class="btn btn-success" id="team2-add">+ (200)</button>
+                      <button class="btn btn-danger" id="team2-sub">- (200)</button>
+                  </div>
+              </div>
+          </div>
+        </main>
+  <script
+  src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+  integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+  integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+  crossorigin="anonymous"
+></script>
+  <script>
+      const colIndex = <%=game.categories.length%>;
+      const rowIndex = <%=game.categories[0].questions.length%>;
+  </script>
+  <script src="/javascripts/playGame.js"></script>
+</body>
+</html>

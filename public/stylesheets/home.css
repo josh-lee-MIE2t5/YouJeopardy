@@ -22,7 +22,7 @@ main {
 }
 
 #home-nav a:hover {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(205, 205, 205, 0.8);
     text-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;
 }
 
@@ -53,11 +53,14 @@ main {
 #main-content a {
     font-size: 0.5em;
     margin: 1em 2em 40%;
-    transition: margin 0.25s;
+    color: black;
+    transition: all 0.25s;
+
 }
 
 #main-content a:hover {
     margin: 0.8em 40%;
+    color: rgba(255, 255, 255, 0.75);
 }
 
 @media (min-width:576px) {
