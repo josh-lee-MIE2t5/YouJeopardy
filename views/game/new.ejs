@@ -3,12 +3,12 @@
   <div class="row"><h1>Making a new game</h1></div>
   <div class="row">
     <div class="col-6">
-        <button class="btn btn-primary" id="addRow">add row</button>
-        <button class="btn btn-danger" id="deleteRow">delete row</button>
+        <button class="btn btn-primary" id="addRow">+ row</button>
+        <button class="btn btn-danger" id="deleteRow">- row</button>
     </div>
     <div class="col-6">
-      <button class="btn btn-secondary" id="addCategory">add category</button>
-      <button class="btn btn-danger" id="deleteCategory">delete category</button>
+      <button class="btn btn-secondary" id="addCategory">+ category</button>
+      <button class="btn btn-danger" id="deleteCategory">- category</button>
     </div>
   </div>
   <div class="row">
@@ -22,29 +22,30 @@
           <option value="private">private</option>
         </select>
     </div>
-    <div id="game-body" class="d-flex justify-content-center">
+    <section class="d-flex justify-content-center">
+      <div id="game-body" class="d-flex justify-content-start justify-content-lg-center">
           
-                <div id="category-0" class="category d-flex flex-column">
-          
-                    <input type="text" name="categories[0][name]" id="category0" placeholder="enter a category" required>
-    
-                                <input type="text" name="categories[0][questions][0][body]" id="category0question0" placeholder="enter a question" required>
+        <div id="category-0" class="category d-flex flex-column">
+  
+            <input type="text" name="categories[0][name]" id="category0" placeholder="enter a category" required>
+
+                        <input type="text" name="categories[0][questions][0][body]" id="category0question0" placeholder="enter a question" required>
+        
+              
+                        <input type="text" name="categories[0][questions][0][answer]" id="category0answer0" placeholder="enter the ans" required>
                 
-                      
-                                <input type="text" name="categories[0][questions][0][answer]" id="category0answer0" placeholder="enter the ans" required>
-                        
-                      
-                            <select name="categories[0][questions][0][points]" id="category0points0">
-                                <option value="200">200</option>
-                                <option value="400">400</option>
-                                <option value="600">600</option>
-                                <option value="800">800</option>
-                                <option value="1000">1000</option>
-                            </select>
-                    
-                        </div>
+              
+                    <select name="categories[0][questions][0][points]" id="category0points0">
+                        <option value="200">200</option>
+                        <option value="400">400</option>
+                        <option value="600">600</option>
+                        <option value="800">800</option>
+                        <option value="1000">1000</option>
+                    </select>
+            
                 </div>
- 
+        </div>
+    </section>
         </div>
       <button>submit</button>
     </form>

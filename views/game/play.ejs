@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="play-pg" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,8 +23,8 @@
         <div class="section">
             <div class="row">
               <%for (let i = 0; i<game.categories.length; i++) { %>
-              <div class="col mx-0 p-0 d-flex flex-column align-items-center">
-                <h5 class="text-center category-title"><%= game.categories[i].name %></h5>
+              <div class="col-<%=12/game.categories.length%> mx-0 p-0 d-flex flex-column align-items-center">
+               <div class="category-title d-flex align-items-center justify-content-center"><h5 class="text-center"><%= game.categories[i].name %></h5></div>
                 <% for (let j = 0; j < game.categories[i].questions.length; j++) { %>
                 <button id="category-<%=i%>-question-<%=j%>" class="question-reveal"><%= game.categories[i].questions[j].points %></button>
                 <% } %>

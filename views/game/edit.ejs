@@ -4,12 +4,12 @@
   <div class="row"><h1>Edit your Game</h1></div>
   <div class="row">
     <div class="col-6">
-        <button class="btn btn-primary" id="addRow">add row</button>
-        <button class="btn btn-danger" id="deleteRow">delete row</button>
+        <button class="btn btn-primary" id="addRow">+ row</button>
+        <button class="btn btn-danger" id="deleteRow">- row</button>
     </div>
     <div class="col-6">
-      <button class="btn btn-secondary" id="addCategory">add category</button>
-      <button class="btn btn-danger" id="deleteCategory">delete category</button>
+      <button class="btn btn-secondary" id="addCategory">+ category</button>
+      <button class="btn btn-danger" id="deleteCategory">- category</button>
     </div>
   </div>
   <div class="row">
@@ -28,7 +28,8 @@
             <% } %>  
         </select>
     </div>
-    <div id="game-body" class="d-flex justify-content-center">
+    <section class="d-flex justify-content-center">
+      <div id="game-body" class="d-flex justify-content-start justify-content-lg-center">
         <% for (let i = 0; i< game.categories.length; i++){ %> 
           
                 <div id="category-<%=i%>" class="category d-flex flex-column">
@@ -54,6 +55,7 @@
                         </div>
                         <% } %> 
                 </div>
+    </section>
  
         </div>
       <button>submit</button>
