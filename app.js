@@ -26,7 +26,6 @@ const userRoutes = require("./routes/user");
 const MongoDBStore = require("connect-mongo");
 //mongo connection
 const DbUrl = process.env.DB_URL || "mongodb://localhost:27017/youjeopardy";
-console.log(DbUrl);
 mongoose.connect(DbUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
