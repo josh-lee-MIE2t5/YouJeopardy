@@ -28,8 +28,8 @@ const userSchema = Joi.object({
 }).required();
 
 const questionSchema = Joi.object({
-  body: Joi.string().min(1).max(250).required().escapeHTML(),
-  answer: Joi.string().min(1).max(250).required().escapeHTML(),
+  body: Joi.string().min(1).max(1500).required().escapeHTML(),
+  answer: Joi.string().min(1).max(1500).required().escapeHTML(),
   points: Joi.number().valid(200, 400, 600, 800, 1000).required(),
 });
 
