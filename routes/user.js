@@ -2,18 +2,17 @@ const express = require("express");
 const router = express.Router();
 const handleAsync = require("../utils/handleAsync");
 const passport = require("passport");
-const User = require("../models/user");
-const { validateUser } = require("../middleware");
+const { validateUser, alreadyLoggedIn } = require("../middleware");
 const userController = require("../controllers/user");
 
 router
   .route("/register")
-  .get(userController.renderRegister)
+  .get(alreadyLoggedIn, userController.renderRegister)
   .post(validateUser, handleAsync(userController.registerUser));
 
 router
   .route("/login")
-  .get(userController.renderLogin)
+  .get(alreadyLoggedIn, userController.renderLogin)
   .post(
     passport.authenticate("local", {
       failureFlash: true,

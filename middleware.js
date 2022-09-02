@@ -33,6 +33,15 @@ module.exports.isLoggedIn = function (req, res, next) {
   }
 };
 
+module.exports.alreadyLoggedIn = function (req, res, next) {
+  if (req.isAuthenticated()) {
+    req.flash("error", `You are already logged in as: ${req.user.username}`);
+    res.redirect("/");
+  } else {
+    next();
+  }
+};
+
 module.exports.isAuthor = async function (req, res, next) {
   try {
     const { id } = req.params;
